@@ -40,7 +40,9 @@ const getHotRecommendData = async () => {
 }
 
 // 页面加载
-onLoad(() => {
+onLoad((query) => {
+  console.log('🚀 ~ onLoad ~ query:', query)
+  // 获取热门推荐数据
   getHotRecommendData()
 })
 
