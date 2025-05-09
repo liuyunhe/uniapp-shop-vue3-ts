@@ -10,6 +10,7 @@ import {
 import { useMemberStore } from '@/stores'
 import type { CartItem } from '@/types/cart'
 import { onShow } from '@dcloudio/uni-app'
+import { toRaw } from 'vue'
 import { computed, ref } from 'vue'
 
 // 是否适配底部安全区域
@@ -30,6 +31,7 @@ const showCartList = ref(true)
 const getMemberCartData = async () => {
   const res = await getMemberCartAPI()
   cartList.value = res.result
+  console.log('🚀 ~ getMemberCartData ~ cartList.value:', toRaw(cartList.value))
   showCartList.value = res.result.length > 0
 }
 
